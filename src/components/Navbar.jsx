@@ -48,11 +48,7 @@ export default function Navbar() {
       <div className="container navbar-inner">
         <motion.div whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 400 }}>
           <Link to="/" className="navbar-brand" onClick={() => setMenuOpen(false)}>
-            <span className="brand-icon">🌐</span>
-            <span className="brand-text">
-              <span className="brand-wheels">WHEELS</span>
-              <span className="brand-global"> Global Foundation</span>
-            </span>
+            <img src="/image-removebg-preview.png" alt="WHEELS Global Foundation" style={{ height: '100px', width: 'auto', display: 'block' }} />
           </Link>
         </motion.div>
 

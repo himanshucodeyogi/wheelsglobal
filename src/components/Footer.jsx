@@ -7,11 +7,7 @@ export default function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand">
           <div className="footer-logo">
-            <span className="brand-icon">🌐</span>
-            <span>
-              <span className="brand-wheels">WHEELS</span>
-              <span className="brand-global"> Global Foundation</span>
-            </span>
+            <img src="/image-removebg-preview.png" alt="WHEELS Global Foundation" style={{ width: '260px', height: 'auto' }} />
           </div>
           <p>Leveraging the collective strength of IIT alumni to bring technology-enabled solutions to rural India.</p>
           <p className="footer-address">📍 7306 Hooking Rd, McLean, VA 22101, USA</p>

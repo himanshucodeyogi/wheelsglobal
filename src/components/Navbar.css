@@ -6,6 +6,7 @@
   top: 0;
   transition: box-shadow 0.3s ease, background 0.3s ease;
   z-index: 1000;
+  overflow: visible;
 }
 .navbar.scrolled {
   box-shadow: 0 4px 20px rgba(0,0,0,0.12);
@@ -26,6 +27,7 @@
   justify-content: space-between;
   height: 68px;
   position: relative;
+  overflow: visible;
 }
 
 .navbar-brand {
