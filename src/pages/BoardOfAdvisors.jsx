@@ -33,16 +33,14 @@ export default function BoardOfAdvisors() {
             <StaggerContainer className="grid-3" stagger={0.1}>
               {advisors.map((a) => (
                 <StaggerItem key={a.name}>
-                  <motion.div className="card" style={{ textAlign: 'center', padding: 0, overflow: 'hidden' }}
+                  <motion.div className="card" style={{ textAlign: 'center', padding: 'var(--space-xl)' }}
                     whileHover={{ y: -8, boxShadow: '0 16px 40px rgba(0,0,0,0.12)' }} transition={{ duration: 0.2 }}>
                     <motion.img src={a.img} alt={a.name}
-                      style={{ width: '100%', height: '240px', objectFit: 'cover', objectPosition: '50% 15%', display: 'block' }}
-                      whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }} />
-                    <div style={{ padding: 'var(--space-lg)' }}>
-                      <h3 style={{ fontSize: '18px', marginBottom: '4px' }}>{a.name}</h3>
-                      <p style={{ color: 'var(--color-primary)', fontWeight: 600, fontSize: '13px', marginBottom: 'var(--space-md)' }}>{a.role}</p>
-                      <p style={{ color: 'var(--color-text-secondary)', fontSize: '14px', lineHeight: 1.6 }}>{a.bio}</p>
-                    </div>
+                      style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover', objectPosition: 'center top', display: 'block', margin: '0 auto var(--space-md)', border: '3px solid var(--color-border)' }}
+                      whileHover={{ scale: 1.06 }} transition={{ duration: 0.3 }} />
+                    <h3 style={{ fontSize: '18px', marginBottom: '4px' }}>{a.name}</h3>
+                    <p style={{ color: 'var(--color-primary)', fontWeight: 600, fontSize: '13px', marginBottom: 'var(--space-md)' }}>{a.role}</p>
+                    <p style={{ color: 'var(--color-text-secondary)', fontSize: '14px', lineHeight: 1.6 }}>{a.bio}</p>
                   </motion.div>
                 </StaggerItem>
               ))}
