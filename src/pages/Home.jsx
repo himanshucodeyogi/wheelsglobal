@@ -5,7 +5,6 @@ import { FadeUp, SlideLeft, SlideRight, StaggerContainer, StaggerItem, AnimatedC
 import './Home.css'
 
 const heroImages = [
-  { url: 'https://tse3.mm.bing.net/th/id/OIP.UbgpEmsIB2MoVM8Itv7hvQHaFQ?rs=1&pid=ImgDetMain&o=7&rm=3', label: 'IIT Alumni Team' },
   { url: 'https://plus.unsplash.com/premium_photo-1682092655459-2ba62ad1ee17?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cnVyYWwlMjBpbmRpYXxlbnwwfHwwfHx8MA%3D%3D', label: 'Rural India Village' },
   { url: 'https://images.unsplash.com/photo-1559825481-12a05cc00344?w=1400&q=80', label: 'Clean Water' },
   { url: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1400&q=80', label: 'Clean Energy' },
