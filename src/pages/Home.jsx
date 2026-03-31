@@ -156,7 +156,7 @@ function ImpactCalculator() {
         </div>
         <FadeUp delay={0.4}>
           <div style={{ textAlign: 'center', marginTop: 'var(--space-xl)' }}>
-            <Link to="/donate" className="btn btn-primary">Donate ₹{amount.toLocaleString('en-IN')} Now</Link>
+            <Link to={`/donate?amount=${amount}`} className="btn btn-primary">Donate ₹{amount.toLocaleString('en-IN')} Now</Link>
           </div>
         </FadeUp>
       </div>

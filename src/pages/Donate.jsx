@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FadeUp, SlideLeft, SlideRight, PageTransition } from '../components/Animations'
 
@@ -6,8 +7,11 @@ const amounts = [25, 50, 100, 250, 500, 1000]
 const councils = ['General Fund', 'Water Council', 'Health Council', 'Education Council', 'Energy Council', 'Livelihood Council']
 
 export default function Donate() {
-  const [amount, setAmount] = useState(100)
-  const [custom, setCustom] = useState('')
+  const [searchParams] = useSearchParams()
+  const urlAmount = searchParams.get('amount')
+
+  const [amount, setAmount] = useState(urlAmount && amounts.includes(Number(urlAmount)) ? Number(urlAmount) : 100)
+  const [custom, setCustom] = useState(urlAmount && !amounts.includes(Number(urlAmount)) ? urlAmount : '')
   const [council, setCouncil] = useState('General Fund')
   const [submitted, setSubmitted] = useState(false)
 
