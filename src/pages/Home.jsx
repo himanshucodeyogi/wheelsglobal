@@ -130,22 +130,25 @@ function ImpactCalculator() {
               <FadeUp key={item.label} delay={i * 0.1}>
                 <motion.div
                   className="calc-card"
-                  style={{ borderTop: `4px solid ${item.color}` }}
-                  whileHover={{ y: -5 }}
+                  style={{ background: item.bg, border: `1.5px solid ${item.color}22` }}
+                  whileHover={{ y: -6, boxShadow: `0 12px 28px ${item.color}22` }}
+                  transition={{ duration: 0.2 }}
                 >
-                  <span className="calc-icon">{item.icon}</span>
+                  <div className="calc-icon-wrap" style={{ background: item.color + '18' }}>
+                    <span className="calc-icon">{item.icon}</span>
+                  </div>
                   <motion.div
                     className="calc-people"
                     style={{ color: item.color }}
                     key={people}
-                    initial={{ scale: 0.7, opacity: 0 }}
+                    initial={{ scale: 0.6, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ type: 'spring', stiffness: 300 }}
+                    transition={{ type: 'spring', stiffness: 320, damping: 18 }}
                   >
                     {people}
                   </motion.div>
                   <div className="calc-unit">{item.unit}</div>
-                  <div className="calc-label">{item.label}</div>
+                  <div className="calc-label" style={{ color: item.color }}>{item.label}</div>
                 </motion.div>
               </FadeUp>
             )

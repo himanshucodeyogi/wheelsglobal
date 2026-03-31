@@ -198,23 +198,33 @@
   gap: var(--space-lg);
 }
 .calc-card {
-  background: var(--color-background);
-  border-radius: var(--radius-md);
-  padding: var(--space-xl) var(--space-md);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-lg);
   text-align: center;
-  box-shadow: var(--elevation-1);
-  border: 1px solid var(--color-border);
   cursor: default;
+  transition: box-shadow 0.2s;
 }
-.calc-icon { font-size: 32px; display: block; margin-bottom: 8px; }
+.calc-icon-wrap {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto var(--space-md);
+}
+.calc-icon { font-size: 28px; line-height: 1; }
 .calc-people {
-  font-size: 44px;
-  font-weight: 700;
+  font-size: 52px;
+  font-weight: 800;
   line-height: 1;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  letter-spacing: -2px;
 }
-.calc-unit { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 6px; line-height: 1.4; }
-.calc-label { font-size: 13px; font-weight: 600; color: var(--color-text); }
+.calc-unit {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.calc-label { font-size: 13px; font-weight: 700; letter-spacing: 0.3px; }
 
 /* ── Donation Progress Bar ── */
 .progress-wrap {
@@ -342,8 +352,11 @@
 
 /* Dark mode for new sections */
 [data-theme="dark"] .calc-card {
-  background: #1E1E1E;
-  border-color: #2a2a2a;
+  background: #1a1a2a !important;
+  border-color: rgba(255,255,255,0.08) !important;
+}
+[data-theme="dark"] .calc-icon-wrap {
+  background: rgba(255,255,255,0.08) !important;
 }
 [data-theme="dark"] .progress-wrap {
   background: #1E1E1E;
