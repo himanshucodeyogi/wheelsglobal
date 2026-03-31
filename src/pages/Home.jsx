@@ -90,16 +90,19 @@ function StatItem({ number, label, suffix }) {
   )
 }
 
-// Impact Calculator data
+// Impact Calculator data — costs sourced from wheelsglobal.org
+// Water: ₹387/person (WGF Spring Rejuvenation Program — published)
+// Healthcare: ₹110/consultation (WGF Rural Telemedicine Centers — published)
+// Education & Energy: estimated from Indian rural dev benchmarks
 const impactData = [
-  { icon: '💧', label: 'Clean Water',  color: '#0057B7', bg: '#EEF4FF', rate: 10, unit: 'people get clean water for a month' },
-  { icon: '📚', label: 'Education',    color: '#D97706', bg: '#FFF7ED', rate: 25, unit: 'children receive a school kit' },
-  { icon: '⚡', label: 'Clean Energy', color: '#DC2626', bg: '#FEF2F2', rate: 5,  unit: 'homes get solar lighting' },
-  { icon: '🏥', label: 'Healthcare',   color: '#16A34A', bg: '#F0FDF4', rate: 20, unit: 'people get telemedicine access' },
+  { icon: '💧', label: 'Clean Water',  color: '#0057B7', bg: '#EEF4FF', costPer: 387,  unit: 'people get safe water for 1 month' },
+  { icon: '📚', label: 'Education',    color: '#D97706', bg: '#FFF7ED', costPer: 500,  unit: 'students get school materials' },
+  { icon: '⚡', label: 'Clean Energy', color: '#DC2626', bg: '#FEF2F2', costPer: 1000, unit: 'homes get solar lighting' },
+  { icon: '🏥', label: 'Healthcare',   color: '#16A34A', bg: '#F0FDF4', costPer: 110,  unit: 'telemedicine consultations' },
 ]
 
 function ImpactCalculator() {
-  const [amount, setAmount] = useState(500)
+  const [amount, setAmount] = useState(1000)
   return (
     <section className="impact-calc section section-alt">
       <div className="container">
@@ -125,7 +128,7 @@ function ImpactCalculator() {
         </FadeUp>
         <div className="calc-cards">
           {impactData.map((item, i) => {
-            const people = Math.floor(amount / 100 * item.rate / 10)
+            const people = Math.floor(amount / item.costPer)
             return (
               <FadeUp key={item.label} delay={i * 0.1}>
                 <motion.div
@@ -157,6 +160,9 @@ function ImpactCalculator() {
         <FadeUp delay={0.4}>
           <div style={{ textAlign: 'center', marginTop: 'var(--space-xl)' }}>
             <Link to={`/donate?amount=${amount}`} className="btn btn-primary">Donate ₹{amount.toLocaleString('en-IN')} Now</Link>
+            <p style={{ marginTop: '12px', fontSize: '12px', color: 'var(--color-text-secondary)' }}>
+              * Water &amp; Healthcare costs sourced from <a href="https://wheelsglobal.org" target="_blank" rel="noreferrer" style={{ color: 'var(--color-primary)' }}>wheelsglobal.org</a>. Education &amp; Energy are estimated benchmarks.
+            </p>
           </div>
         </FadeUp>
       </div>
