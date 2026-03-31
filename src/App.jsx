@@ -4,6 +4,8 @@ import { AnimatePresence } from 'framer-motion'
 import { ThemeProvider } from './context/ThemeContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import PageLoader from './components/PageLoader'
+import BackToTop from './components/BackToTop'
 import Home from './pages/Home'
 import AboutUs from './pages/AboutUs'
 import Councils from './pages/Councils'
@@ -60,12 +62,14 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
+        <PageLoader />
         <ScrollToTop />
         <Navbar />
         <main>
           <AnimatedRoutes />
         </main>
         <Footer />
+        <BackToTop />
       </Router>
     </ThemeProvider>
   )

@@ -32,9 +32,10 @@ const news = [
   { date: 'Jan 2025', title: 'Telemedicine Centers Reach 100,000 Patients', excerpt: 'Health Council milestone: Our rural telemedicine network has served over 100,000 patients.', tag: 'Milestone' },
 ]
 
-// Animated counter hook
-function useCounter(target, duration = 2000) {
+// Dramatic animated counter — ease-out exponential
+function useCounter(target, duration = 2200) {
   const [count, setCount] = useState(0)
+  const [done, setDone] = useState(false)
   const [started, setStarted] = useState(false)
   const ref = useRef(null)
 
@@ -49,21 +50,26 @@ function useCounter(target, duration = 2000) {
 
   useEffect(() => {
     if (!started) return
-    let start = 0
-    const step = target / (duration / 16)
-    const timer = setInterval(() => {
-      start += step
-      if (start >= target) { setCount(target); clearInterval(timer) }
-      else setCount(Math.floor(start))
-    }, 16)
-    return () => clearInterval(timer)
+    let startTime = null
+    const tick = (timestamp) => {
+      if (!startTime) startTime = timestamp
+      const elapsed = timestamp - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      // Ease-out expo for dramatic deceleration
+      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress)
+      setCount(Math.floor(eased * target))
+      if (progress < 1) requestAnimationFrame(tick)
+      else { setCount(target); setDone(true) }
+    }
+    const raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
   }, [started, target, duration])
 
-  return [count, ref]
+  return [count, ref, done]
 }
 
 function StatItem({ number, label, suffix }) {
-  const [count, ref] = useCounter(number, 1800)
+  const [count, ref, done] = useCounter(number, 2000)
   return (
     <motion.div
       ref={ref}
@@ -72,9 +78,146 @@ function StatItem({ number, label, suffix }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.8 }}
     >
-      <div className="stat-number">{count}{suffix}</div>
+      <motion.div
+        className="stat-number"
+        animate={done ? { scale: [1, 1.18, 1], color: ['#FFA500', '#FFD700', '#FFA500'] } : {}}
+        transition={{ duration: 0.5 }}
+      >
+        {count}{suffix}
+      </motion.div>
       <div className="stat-label">{label}</div>
     </motion.div>
+  )
+}
+
+// Impact Calculator data
+const impactData = [
+  { icon: '💧', label: 'Clean Water',  color: '#0057B7', bg: '#EEF4FF', rate: 10, unit: 'people get clean water for a month' },
+  { icon: '📚', label: 'Education',    color: '#D97706', bg: '#FFF7ED', rate: 25, unit: 'children receive a school kit' },
+  { icon: '⚡', label: 'Clean Energy', color: '#DC2626', bg: '#FEF2F2', rate: 5,  unit: 'homes get solar lighting' },
+  { icon: '🏥', label: 'Healthcare',   color: '#16A34A', bg: '#F0FDF4', rate: 20, unit: 'people get telemedicine access' },
+]
+
+function ImpactCalculator() {
+  const [amount, setAmount] = useState(500)
+  return (
+    <section className="impact-calc section section-alt">
+      <div className="container">
+        <FadeUp>
+          <div className="section-title">
+            <h2>Your Donation, Real Impact</h2>
+            <p>Slide karke dekho — aapke ₹{amount.toLocaleString('en-IN')} se kitna badlav ho sakta hai</p>
+          </div>
+        </FadeUp>
+        <FadeUp delay={0.15}>
+          <div className="calc-slider-wrap">
+            <div className="calc-amount">₹{amount.toLocaleString('en-IN')}</div>
+            <input
+              type="range" min={100} max={50000} step={100}
+              value={amount}
+              onChange={e => setAmount(Number(e.target.value))}
+              className="calc-range"
+            />
+            <div className="calc-labels">
+              <span>₹100</span><span>₹25,000</span><span>₹50,000</span>
+            </div>
+          </div>
+        </FadeUp>
+        <div className="calc-cards">
+          {impactData.map((item, i) => {
+            const people = Math.floor(amount / 100 * item.rate / 10)
+            return (
+              <FadeUp key={item.label} delay={i * 0.1}>
+                <motion.div
+                  className="calc-card"
+                  style={{ borderTop: `4px solid ${item.color}` }}
+                  whileHover={{ y: -5 }}
+                >
+                  <span className="calc-icon">{item.icon}</span>
+                  <motion.div
+                    className="calc-people"
+                    style={{ color: item.color }}
+                    key={people}
+                    initial={{ scale: 0.7, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    {people}
+                  </motion.div>
+                  <div className="calc-unit">{item.unit}</div>
+                  <div className="calc-label">{item.label}</div>
+                </motion.div>
+              </FadeUp>
+            )
+          })}
+        </div>
+        <FadeUp delay={0.4}>
+          <div style={{ textAlign: 'center', marginTop: 'var(--space-xl)' }}>
+            <Link to="/donate" className="btn btn-primary">Donate ₹{amount.toLocaleString('en-IN')} Now</Link>
+          </div>
+        </FadeUp>
+      </div>
+    </section>
+  )
+}
+
+// Donation Progress Bar
+const donationGoal = 500000
+const donationRaised = 312000
+
+function DonationProgress() {
+  const [width, setWidth] = useState(0)
+  const ref = useRef(null)
+  const pct = Math.round((donationRaised / donationGoal) * 100)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setTimeout(() => setWidth(pct), 200) },
+      { threshold: 0.5 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [pct])
+
+  return (
+    <section className="donation-progress section">
+      <div className="container">
+        <FadeUp>
+          <div className="section-title">
+            <h2>2025 Fundraising Goal</h2>
+            <p>Mil ke ek bade sapne ko poora kar rahe hain</p>
+          </div>
+        </FadeUp>
+        <FadeUp delay={0.15}>
+          <div className="progress-wrap" ref={ref}>
+            <div className="progress-meta">
+              <span className="progress-raised">₹{donationRaised.toLocaleString('en-IN')} raised</span>
+              <span className="progress-goal">Goal: ₹{donationGoal.toLocaleString('en-IN')}</span>
+            </div>
+            <div className="progress-bar-bg">
+              <motion.div
+                className="progress-bar-fill"
+                style={{ width: `${width}%` }}
+                transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+              />
+              <motion.div
+                className="progress-pct-badge"
+                style={{ left: `${width}%` }}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: width > 0 ? 1 : 0, scale: width > 0 ? 1 : 0 }}
+                transition={{ delay: 1.2 }}
+              >
+                {pct}%
+              </motion.div>
+            </div>
+            <div className="progress-donors">
+              <span>🙌 847 donors ne contribute kiya</span>
+              <Link to="/donate" className="btn btn-secondary" style={{ padding: '8px 22px', fontSize: '14px' }}>Help Us Reach Goal</Link>
+            </div>
+          </div>
+        </FadeUp>
+      </div>
+    </section>
   )
 }
 
@@ -189,17 +332,15 @@ export default function Home() {
                 <StaggerItem key={c.link}>
                   <motion.div whileHover={{ y: -8, transition: { duration: 0.2 } }}>
                     <Link to={c.link} className="mission-card">
-                      <motion.div
-                        className="mission-icon"
-                        style={{ background: c.color + '15' }}
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ type: 'spring', stiffness: 300 }}
-                      >
-                        <img src={c.img} alt={c.title} />
-                      </motion.div>
-                      <h3>{c.title}</h3>
-                      <p>{c.desc}</p>
-                      <span className="mission-link" style={{ color: c.color }}>Learn More →</span>
+                      <div className="mission-img-wrap">
+                        <img src={c.img} alt={c.title} className="mission-img" />
+                        <div className="mission-color-bar" style={{ background: c.color }} />
+                      </div>
+                      <div className="mission-body">
+                        <h3>{c.title}</h3>
+                        <p>{c.desc}</p>
+                        <span className="mission-link" style={{ color: c.color }}>Learn More →</span>
+                      </div>
                     </Link>
                   </motion.div>
                 </StaggerItem>
@@ -254,6 +395,12 @@ export default function Home() {
             </SlideRight>
           </div>
         </section>
+
+        {/* Impact Calculator */}
+        <ImpactCalculator />
+
+        {/* Donation Progress */}
+        <DonationProgress />
 
         {/* News */}
         <section className="section">
