@@ -2,12 +2,13 @@ import { motion } from 'framer-motion'
 import { FadeUp, StaggerContainer, StaggerItem, PageTransition } from '../components/Animations'
 
 const ambassadors = [
-  { name: 'Ambassador 1', campus: 'IIT Bombay', city: 'Mumbai', focus: 'Health & Education', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&q=80' },
-  { name: 'Ambassador 2', campus: 'IIT Delhi', city: 'Delhi', focus: 'Energy & Livelihood', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80' },
-  { name: 'Ambassador 3', campus: 'IIT Madras', city: 'Chennai', focus: 'Water & Sanitation', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80' },
-  { name: 'Ambassador 4', campus: 'IIT Kharagpur', city: 'Kolkata', focus: 'Education', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80' },
-  { name: 'Ambassador 5', campus: 'IIT Kanpur', city: 'Kanpur', focus: 'Health', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80' },
-  { name: 'Ambassador 6', campus: 'University of California', city: 'San Francisco, USA', focus: 'Fundraising', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80' },
+  { name: 'YagyaDatt Sharma', campus: 'NIT Allahabad', city: 'Germantown, MD', focus: 'Technology & Social Reform', img: 'https://wheelsglobal.org/wp-content/uploads/2022/07/YagyaDatt-Sharma.jpeg', bio: 'Director of Technology Services for WGF. Sr. Principal Engineer at Hughes Systique; established WGF\'s technical infrastructure including website, donation systems, and databases.' },
+  { name: 'Ambuj Agarwal', campus: 'IIT Kharagpur', city: 'India', focus: 'Child Education & Rural Uplift', img: 'https://wheelsglobal.org/wp-content/uploads/2023/06/Ambuj-Agarwal.jpg', bio: 'Works at Impact Analytics with focus on AI/ML for retail. Deeply involved in social initiatives for child education and rural community development.' },
+  { name: 'Abhishek Rishabh', campus: 'IIT Kanpur', city: 'USA', focus: 'Marketing Research & Social Impact', img: 'https://wheelsglobal.org/wp-content/uploads/2023/06/Abhishek-Rishabh.jpg', bio: 'Golub Capital Social Impact Fellow at Kellogg School of Management. Researches charitable giving, pricing, and social impact strategies.' },
+  { name: 'Priyanka Sahoo', campus: 'IIT Kharagpur', city: 'India', focus: 'Healthcare Policy & SDG Impact', img: 'https://wheelsglobal.org/wp-content/uploads/2023/06/Priyanka-Sahoo.jpg', bio: 'Working on UNDP SDG Impact initiatives. Focuses on bridging white spaces in healthcare through policy solutions and sustainable development.' },
+  { name: 'Shrey Goyal', campus: 'IIT Kharagpur', city: 'Delhi / Paris', focus: 'Climate Action & Sustainability', img: 'https://wheelsglobal.org/wp-content/uploads/2023/06/Shrey-Goyal.jpg', bio: 'Co-founder of Green Spider. Forbes India 30-Under-30 honoree. Leads WGF\'s Sustainable Growth Initiative for climate action and rural development.' },
+  { name: 'Apurvi Bhartia', campus: 'University of Southern California', city: 'San Francisco, USA', focus: 'Economic Equity & Data Analytics', img: 'https://wheelsglobal.org/wp-content/uploads/2023/06/Apurva-Bhartia.jpeg', bio: 'Research Associate in Economic Consulting. Advocates for creating an equitable society through data-driven insights and analytics.' },
+  { name: 'Sathvik Batte', campus: 'IIT Madras', city: 'India', focus: 'Clean Energy & Sustainability', img: 'https://wheelsglobal.org/wp-content/uploads/2025/06/Satvik-WGF-Ambassador.jpg', bio: 'CEO of EQOedge. Experienced in finance, marketing, and clean energy sector expansion for sustainable rural communities.' },
 ]
 
 export default function Ambassadors() {
@@ -32,21 +33,20 @@ export default function Ambassadors() {
             <StaggerContainer className="grid-3" stagger={0.1}>
               {ambassadors.map((a, i) => (
                 <StaggerItem key={i}>
-                  <motion.div className="card" style={{ textAlign: 'center', padding: 0, overflow: 'hidden' }}
+                  <motion.div className="card" style={{ textAlign: 'center', padding: 'var(--space-xl)' }}
                     whileHover={{ y: -8, boxShadow: '0 16px 40px rgba(0,0,0,0.12)' }} transition={{ duration: 0.2 }}>
                     <motion.img src={a.img} alt={a.name}
-                      style={{ width: '100%', height: '240px', objectFit: 'cover', objectPosition: '50% 15%', display: 'block' }}
-                      whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }} />
-                    <div style={{ padding: 'var(--space-lg)' }}>
-                      <h3 style={{ fontSize: '18px', marginBottom: '4px' }}>{a.name}</h3>
-                      <p style={{ color: 'var(--color-primary)', fontWeight: 600, fontSize: '14px' }}>{a.campus}</p>
-                      <p style={{ color: 'var(--color-text-secondary)', fontSize: '14px', marginBottom: 'var(--space-sm)' }}>📍 {a.city}</p>
-                      <motion.span
-                        style={{ background: 'var(--tint-blue)', color: 'var(--color-primary)', padding: '4px 12px', borderRadius: '12px', fontSize: '12px', fontWeight: 600, display: 'inline-block' }}
-                        whileHover={{ scale: 1.1 }}>
-                        {a.focus}
-                      </motion.span>
-                    </div>
+                      style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover', objectPosition: 'center top', display: 'block', margin: '0 auto var(--space-md)', border: '3px solid var(--color-border)' }}
+                      whileHover={{ scale: 1.06 }} transition={{ duration: 0.3 }} />
+                    <h3 style={{ fontSize: '18px', marginBottom: '4px' }}>{a.name}</h3>
+                    <p style={{ color: 'var(--color-primary)', fontWeight: 600, fontSize: '13px', marginBottom: '4px' }}>{a.campus}</p>
+                    <p style={{ color: 'var(--color-text-secondary)', fontSize: '13px', marginBottom: 'var(--space-sm)' }}>{a.city}</p>
+                    <motion.span
+                      style={{ background: 'var(--tint-blue)', color: 'var(--color-primary)', padding: '4px 12px', borderRadius: '12px', fontSize: '12px', fontWeight: 600, display: 'inline-block', marginBottom: 'var(--space-md)' }}
+                      whileHover={{ scale: 1.1 }}>
+                      {a.focus}
+                    </motion.span>
+                    <p style={{ color: 'var(--color-text-secondary)', fontSize: '14px', lineHeight: 1.6 }}>{a.bio}</p>
                   </motion.div>
                 </StaggerItem>
               ))}
