@@ -4,20 +4,26 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FadeUp, PageTransition } from '../components/Animations'
 
 const allNews = [
-  { date: 'Mar 2025', title: 'WGF Annual Gala 2025', excerpt: 'Join us at the annual gala celebrating a decade of rural transformation through IIT alumni collaboration.', tag: 'Event', category: 'Events' },
-  { date: 'Feb 2025', title: 'Solar Microgrid Launch in Rajasthan', excerpt: 'Energy Council deploys 50kW solar microgrid providing clean power to 3 villages, benefiting 500+ families.', tag: 'Project', category: 'Projects' },
-  { date: 'Jan 2025', title: 'Telemedicine Centers Reach 100,000 Patients', excerpt: 'Health Council milestone: Our rural telemedicine network has served over 100,000 patients since inception.', tag: 'Milestone', category: 'Milestones' },
-  { date: 'Dec 2024', title: 'Digital Literacy Program Graduation', excerpt: '500 rural youth graduate from WGF Education Council\'s digital literacy program in Uttar Pradesh.', tag: 'Event', category: 'Events' },
-  { date: 'Nov 2024', title: 'WGF Newsletter — Autumn 2024', excerpt: 'Read the latest updates on our Water, Health, and Livelihood projects from across India.', tag: 'Newsletter', category: 'Newsletters' },
-  { date: 'Oct 2024', title: 'Smart Village Initiative Expansion', excerpt: 'Livelihood Council expands Smart Village framework to 10 new villages in Maharashtra and Rajasthan.', tag: 'Project', category: 'Projects' },
-  { date: 'Sep 2024', title: 'IIT Alumni Fundraising Webinar', excerpt: 'Over 300 IIT alumni joined our virtual fundraising webinar, raising $50,000 for rural health programs.', tag: 'Event', category: 'Events' },
-  { date: 'Aug 2024', title: 'WGF India FCRA Renewal Confirmed', excerpt: 'WGF India\'s FCRA registration renewed, enabling continued international fundraising for Indian programs.', tag: 'Governance', category: 'Governance' },
-  { date: 'Jul 2024', title: '5,000 Clean Cookstoves Distributed', excerpt: 'Energy Council completes distribution of 5,000 clean cookstoves, reducing indoor air pollution for rural families.', tag: 'Milestone', category: 'Milestones' },
+  { date: 'Apr 2026', title: 'IIT 2026 Global Conference', excerpt: 'WHEELS Global Foundation participates in the IIT 2026 Global Conference, April 22–25 in Long Beach, CA. Join IIT alumni from around the world.', tag: 'Event', category: 'Events' },
+  { date: 'Apr 2026', title: 'Interactive Session with WHEELS Partners LaBike & Eldearly', excerpt: 'Join us for an interactive evening with WHEELS partners LaBike & Eldearly on April 2, 2026, 6–8:30 PM EST at 145 Talmadge Road, Edison, NJ.', tag: 'Event', category: 'Events' },
+  { date: 'Apr 2026', title: 'Webinar: Calmness, Clarity & Success in Challenging Times', excerpt: 'Free live webinar on April 11, 2026 at 10 AM EST / 7:30 PM IST. A session on building resilience and clarity for impactful leadership.', tag: 'Webinar', category: 'Webinars' },
+  { date: 'Mar 2026', title: 'A Vision Beyond Borders', excerpt: 'Connecting Youth in USA with Bharat\'s Deep Values, Cultures & Impact Experiences — a blog by Sudesh Agrawal, PhD.', tag: 'Blog', category: 'Blogs' },
+  { date: 'Mar 2026', title: 'SAI\'s Sustainable Agroforestry Journey in Odisha', excerpt: 'Reviving land and empowering tribal farmers in the Rayagada-Koraput belt through SAI\'s sustainable agroforestry initiatives.', tag: 'Blog', category: 'Blogs' },
+  { date: 'Feb 2026', title: 'Launch of Handbook on Water Conservation by RK Malhotra', excerpt: 'WHEELS Global Foundation celebrated the release of a landmark handbook on water conservation at IIT Kharagpur\'s Impact RISE team event.', tag: 'Announcement', category: 'Announcements' },
+  { date: 'Feb 2026', title: 'Nitesh Kumar Appointed to Advisory Board of CFMAR', excerpt: 'WGF Board Member Nitesh Kumar joins the CFMAR Advisory Board, strengthening WGF\'s presence in global rural development circles.', tag: 'Announcement', category: 'Announcements' },
+  { date: 'Feb 2026', title: 'Powered Eri Silk Initiative in Meghalaya', excerpt: 'Exploring eri silk as a cornerstone of Meghalaya\'s textile heritage — a blog by Riya Vazirani Laheja on WGF\'s livelihood initiatives.', tag: 'Blog', category: 'Blogs' },
+  { date: 'Jan 2026', title: 'Essence of WHEELS', excerpt: 'WGF President Ratan Agarwal reflects on WHEELS\' founding in 2006 from the PanIIT movement and the journey of transforming rural India.', tag: 'Blog', category: 'Blogs' },
+  { date: 'Oct 2025', title: 'Highlights from Gala 2025', excerpt: 'The WGF Gala held on October 4 at Marriott Marquis, New York was a culmination of tireless work by IIT alumni and philanthropists.', tag: 'Announcement', category: 'Announcements' },
+  { date: 'Oct 2025', title: 'At Times Square Gala 2025, WHEELS Expands Vision', excerpt: 'Indian American leaders and philanthropists gathered at the Times Square Gala to expand the vision for rural India\'s transformation.', tag: 'Blog', category: 'Blogs' },
+  { date: 'Oct 2025', title: 'WHEELS Gala Event 2025 — New York', excerpt: 'Working towards sustainable development through Rural Transformation. The Gala was held at Marriott Marquis, 1535 Broadway, New York.', tag: 'Event', category: 'Events' },
+  { date: 'Sep 2025', title: 'Wellness Program at IIT Ropar', excerpt: 'WHEELS collaborates with IIT Ropar to build resilience amid academic stress through a structured wellness program for students.', tag: 'Announcement', category: 'Announcements' },
+  { date: 'Sep 2025', title: 'WHEELS at SPRINT North Edition 2025 – IIT Ropar', excerpt: 'Mr. Kishan Goenka represented WHEELS at SPRINT North Edition 2025, catalyzing innovation and collaboration with IIT Ropar.', tag: 'Announcement', category: 'Announcements' },
+  { date: 'Aug 2025', title: 'Interactive Session with WHEELS Partner RuralShores', excerpt: 'An inspiring evening with WHEELS partner RuralShores, showcasing how rural BPO models create sustainable livelihoods in India.', tag: 'Event', category: 'Events' },
 ]
 
-const categories = ['All', 'Events', 'Projects', 'Milestones', 'Newsletters', 'Governance']
-const tagColors = { Event: 'var(--tint-blue)', Project: 'var(--tint-green)', Milestone: 'var(--tint-orange)', Newsletter: 'var(--tint-blue)', Governance: 'var(--tint-red)' }
-const tagTextColors = { Event: '#0057B7', Project: '#28A745', Milestone: '#FFA500', Newsletter: '#0057B7', Governance: '#DC3545' }
+const categories = ['All', 'Events', 'Announcements', 'Blogs', 'Webinars']
+const tagColors = { Event: 'var(--tint-blue)', Announcement: 'var(--tint-orange)', Blog: 'var(--tint-green)', Webinar: 'var(--tint-blue)' }
+const tagTextColors = { Event: '#0057B7', Announcement: '#FFA500', Blog: '#28A745', Webinar: '#0057B7' }
 
 export default function NewsEvents() {
   const [filter, setFilter] = useState('All')
