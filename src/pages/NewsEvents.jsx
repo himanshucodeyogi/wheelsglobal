@@ -83,7 +83,7 @@ export default function NewsEvents() {
                     </div>
                     <h3 style={{ fontSize: '18px', margin: 'var(--space-sm) 0' }}>{n.title}</h3>
                     <p style={{ color: 'var(--color-text-secondary)', fontSize: '14px', lineHeight: 1.6, marginBottom: 'var(--space-md)' }}>{n.excerpt}</p>
-                    <a href="#" style={{ color: 'var(--color-primary)', fontWeight: 600, fontSize: '14px' }}>Read More →</a>
+                    <a href="#" onClick={e => e.preventDefault()} style={{ color: 'var(--color-primary)', fontWeight: 600, fontSize: '14px' }}>Read More →</a>
                   </motion.div>
                 ))}
               </AnimatePresence>

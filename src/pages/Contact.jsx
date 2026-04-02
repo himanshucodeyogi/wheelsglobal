@@ -35,7 +35,7 @@ export default function Contact() {
               {[
                 { icon: '📍', label: 'Address', value: '7306 Hooking Rd, McLean, VA 22101, USA' },
                 { icon: '📧', label: 'Email', value: 'info@WHEELSGlobal.org', href: 'mailto:info@WHEELSGlobal.org' },
-                { icon: '🌐', label: 'Website', value: 'wheelsglobal.org', href: '#' },
+                { icon: '🌐', label: 'Website', value: 'wheelsglobal.org', href: 'https://wheelsglobal.org' },
               ].map((c, i) => (
                 <motion.div key={c.label}
                   initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
@@ -49,7 +49,7 @@ export default function Contact() {
                   </motion.div>
                   <div>
                     <p style={{ fontWeight: 600, marginBottom: '4px' }}>{c.label}</p>
-                    {c.href ? <a href={c.href} style={{ color: 'var(--color-link)' }}>{c.value}</a> : <p style={{ color: 'var(--color-text-secondary)' }}>{c.value}</p>}
+                    {c.href ? <a href={c.href} target="_blank" rel="noreferrer" style={{ color: 'var(--color-link)' }}>{c.value}</a> : <p style={{ color: 'var(--color-text-secondary)' }}>{c.value}</p>}
                   </div>
                 </motion.div>
               ))}
@@ -58,7 +58,7 @@ export default function Contact() {
                 <h3 style={{ marginBottom: 'var(--space-md)' }}>Connect on Social Media</h3>
                 <div style={{ display: 'flex', gap: 'var(--space-md)', flexWrap: 'wrap' }}>
                   {[{ label: 'LinkedIn', icon: '💼' }, { label: 'Twitter/X', icon: '🐦' }, { label: 'Facebook', icon: '📘' }].map((s) => (
-                    <motion.a key={s.label} href="#"
+                    <motion.a key={s.label} href="#" onClick={e => e.preventDefault()}
                       whileHover={{ scale: 1.08, y: -3 }} whileTap={{ scale: 0.95 }}
                       style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'var(--color-border)', borderRadius: 'var(--radius-sm)', color: 'var(--color-text)', fontWeight: 500, textDecoration: 'none', fontSize: '14px' }}>
                       {s.icon} {s.label}
