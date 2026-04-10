@@ -2,10 +2,10 @@ import { motion } from 'framer-motion'
 import { FadeUp, StaggerContainer, StaggerItem, PageTransition } from '../components/Animations'
 
 const trustees = [
-  { name: 'Ratan Agarwal', role: 'President & CEO; Board Member', img: 'https://wheelsglobal.org/wp-content/uploads/2023/09/Ratan-Agarwal.png', bio: 'IIT alumnus and serial entrepreneur with a tech startup background. Leading WGF\'s strategy since its founding. Also co-leads the Project Sourcing Committee.' },
-  { name: 'Suresh V. Shenoy', role: 'President Emeritus / Vice-Chair', img: 'https://wheelsglobal.org/wp-content/uploads/2023/09/suresh_shenoy.png', bio: 'IIT Bombay graduate and long-time Silicon Valley executive. Co-founded WGF and provides strategic guidance, leveraging his extensive IIT alumni network.' },
-  { name: 'Dr. Hitendra Ghosh', role: 'President Emeritus (Founder)', img: 'https://wheelsglobal.org/wp-content/uploads/2022/07/Hiten-Ghosh.jpg', bio: 'Renowned physicist and humanitarian who served as WGF\'s founding president. Focused on rural science and technology projects in health and education.' },
-  { name: 'Sujata Roy', role: 'President, WGF India; Chapter Lead', img: 'https://wheelsglobalindia.org/wp-content/uploads/2025/08/Sujata-Roy.jpg', bio: 'IIT Kharagpur alumna and former IT industry leader. Heads the Indian arm of WGF and leads the Eastern India chapter\'s village development initiatives.' },
+  { name: 'Ratan Agarwal', role: 'President & CEO; Board Member', img: 'https://wsrv.nl/?url=wheelsglobal.org/wp-content/uploads/2023/09/Ratan-Agarwal.png', bio: 'IIT alumnus and serial entrepreneur with a tech startup background. Leading WGF\'s strategy since its founding. Also co-leads the Project Sourcing Committee.' },
+  { name: 'Suresh V. Shenoy', role: 'President Emeritus / Vice-Chair', img: 'https://wsrv.nl/?url=wheelsglobal.org/wp-content/uploads/2023/09/suresh_shenoy.png', bio: 'IIT Bombay graduate and long-time Silicon Valley executive. Co-founded WGF and provides strategic guidance, leveraging his extensive IIT alumni network.' },
+  { name: 'Dr. Hitendra Ghosh', role: 'President Emeritus (Founder)', img: 'https://wsrv.nl/?url=wheelsglobal.org/wp-content/uploads/2022/07/Hiten-Ghosh.jpg', bio: 'Renowned physicist and humanitarian who served as WGF\'s founding president. Focused on rural science and technology projects in health and education.' },
+  { name: 'Sujata Roy', role: 'President, WGF India; Chapter Lead', img: 'https://wsrv.nl/?url=wheelsglobalindia.org/wp-content/uploads/2025/08/Sujata-Roy.jpg', bio: 'IIT Kharagpur alumna and former IT industry leader. Heads the Indian arm of WGF and leads the Eastern India chapter\'s village development initiatives.' },
 ]
 
 export default function Trustees() {

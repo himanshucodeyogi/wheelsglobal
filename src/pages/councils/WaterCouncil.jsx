@@ -6,7 +6,7 @@ const projects = [
   {
     title: 'Spring Rejuvenation in Himachal Pradesh',
     desc: 'Reviving natural springs in Himachal Pradesh through community-led conservation, restoring perennial water sources for remote hill villages.',
-    img: 'https://wheelsglobal.org/wp-content/uploads/2022/06/water-image.jpg',
+    img: 'https://wsrv.nl/?url=wheelsglobal.org/wp-content/uploads/2022/06/water-image.jpg',
   },
   {
     title: 'Community-level Clean Drinking Water Plants',
@@ -26,7 +26,7 @@ const projects = [
   {
     title: 'Water Management & Holistic Community Development',
     desc: 'Integrating water access with sanitation, hygiene education, and community governance to achieve lasting impact beyond infrastructure alone.',
-    img: 'https://wheelsglobal.org/wp-content/uploads/2024/04/YEIDA-1-1024x768.jpeg',
+    img: 'https://wsrv.nl/?url=wheelsglobal.org/wp-content/uploads/2024/04/YEIDA-1-1024x768.jpeg',
   },
   {
     title: 'Transforming Water Cleanliness Through Technology & Bartering',
