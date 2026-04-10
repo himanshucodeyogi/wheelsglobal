@@ -395,9 +395,19 @@
   .progress-raised { font-size: 18px; }
 }
 @media (max-width: 480px) {
+  .home-hero h1 { font-size: 26px; }
+  .home-hero p { font-size: 16px; }
+  .hero-scroll-hint { display: none; }
   .mission-grid { grid-template-columns: 1fr; }
   .mission-img-wrap { height: 180px; }
+  .about-banner-inner { gap: var(--space-lg); }
   .about-highlights { grid-template-columns: 1fr; }
   .calc-cards { grid-template-columns: 1fr 1fr; }
+  .calc-people { font-size: 36px; }
+  .progress-wrap { padding: var(--space-md); }
   .progress-donors { flex-direction: column; align-items: flex-start; }
+  .stat-number { font-size: 24px; }
+  .hero-stats { gap: var(--space-lg); }
+  .donate-cta { padding: 48px 0; }
+  .donate-cta p { font-size: 16px; }
 }

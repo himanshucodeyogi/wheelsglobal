@@ -60,13 +60,13 @@ export default function Donate() {
               </div>
 
               <section className="section">
-                <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-xxl)', alignItems: 'start', maxWidth: '1000px', margin: '0 auto' }}>
+                <div className="container grid-2-equal">
                   <SlideLeft>
                     <h2 style={{ marginBottom: 'var(--space-xl)' }}>Make a Donation</h2>
                     <form onSubmit={handleSubmit}>
                       <div style={{ marginBottom: 'var(--space-lg)' }}>
                         <label style={{ display: 'block', fontWeight: 600, marginBottom: 'var(--space-sm)' }}>Select Amount (USD)</label>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-sm)', marginBottom: 'var(--space-sm)' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(90px, 1fr))', gap: 'var(--space-sm)', marginBottom: 'var(--space-sm)' }}>
                           {amounts.map((a) => (
                             <motion.button
                               key={a} type="button"

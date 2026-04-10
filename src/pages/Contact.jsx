@@ -21,7 +21,7 @@ export default function Contact() {
         </div>
 
         <section className="section">
-          <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-xxl)', alignItems: 'start', maxWidth: '1000px', margin: '0 auto' }}>
+          <div className="container grid-2-equal">
             <SlideLeft>
               <motion.div
                 style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', marginBottom: 'var(--space-xl)' }}

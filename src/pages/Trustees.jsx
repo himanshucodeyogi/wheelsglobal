@@ -30,7 +30,7 @@ export default function Trustees() {
             <StaggerContainer className="grid-2" stagger={0.12}>
               {trustees.map((t) => (
                 <StaggerItem key={t.name}>
-                  <motion.div className="card" style={{ display: 'flex', gap: 'var(--space-xl)', alignItems: 'flex-start', padding: 'var(--space-xl)' }}
+                  <motion.div className="card person-card" style={{ padding: 'var(--space-xl)' }}
                     whileHover={{ y: -6, boxShadow: '0 12px 30px rgba(0,0,0,0.12)' }} transition={{ duration: 0.2 }}>
                     <motion.img src={t.img} alt={t.name}
                       style={{ width: '110px', height: '110px', borderRadius: '50%', objectFit: 'cover', objectPosition: 'center top', flexShrink: 0, border: '3px solid var(--color-border)' }}
@@ -55,7 +55,7 @@ export default function Trustees() {
                 WGF's governance follows US nonprofit standards with a Board of Trustees (directors) responsible for
                 fiduciary oversight, strategic direction, and organizational compliance.
               </p>
-              <div style={{ marginTop: 'var(--space-xl)', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-md)' }}>
+              <div style={{ marginTop: 'var(--space-xl)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 'var(--space-md)' }}>
                 {['Annual Board Meetings', 'Financial Oversight', 'Program Governance'].map((g, i) => (
                   <motion.div key={g}
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}

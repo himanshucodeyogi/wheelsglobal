@@ -73,7 +73,7 @@ export default function WaterCouncil() {
         {/* Mission & Vision */}
         <section className="section">
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 'var(--space-xxl)', alignItems: 'start' }}>
+            <div className="split-2-1">
               <SlideLeft>
                 <span className="badge" style={{ background: 'var(--tint-blue)', color: 'var(--color-primary)', marginBottom: 'var(--space-md)', display: 'inline-block' }}>Our Mission</span>
                 <h2>Technology-Driven Water Solutions at Scale</h2>

@@ -87,8 +87,8 @@
 }
 
 @media (max-width: 900px) {
-  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; padding: var(--space-xl) var(--space-lg); }
 }
 @media (max-width: 600px) {
-  .footer-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; padding: var(--space-xl) var(--space-md); }
 }

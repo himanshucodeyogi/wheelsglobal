@@ -21,7 +21,7 @@ export default function FinancialRecords() {
 
         <section className="section">
           <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-lg)', marginBottom: 'var(--space-xxl)' }}>
+            <div className="grid-2" style={{ marginBottom: 'var(--space-xxl)' }}>
               <SlideLeft>
                 <motion.div style={{ background: 'var(--tint-blue)', borderRadius: 'var(--radius-md)', padding: 'var(--space-xl)' }}
                   whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,87,183,0.15)' }}>
@@ -57,11 +57,10 @@ export default function FinancialRecords() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
               {filings.map((f, i) => (
-                <motion.div key={f.year} className="card"
+                <motion.div key={f.year} className="card filing-card"
                   initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                  whileHover={{ x: 4, boxShadow: '0 6px 20px rgba(0,0,0,0.1)' }}
-                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 'var(--space-lg)' }}>
+                  whileHover={{ x: 4, boxShadow: '0 6px 20px rgba(0,0,0,0.1)' }}>
                   <div style={{ display: 'flex', gap: 'var(--space-lg)', alignItems: 'center' }}>
                     <motion.div
                       style={{ background: 'var(--color-primary)', color: '#fff', borderRadius: 'var(--radius-sm)', padding: '8px 16px', fontWeight: 700, fontSize: '18px', flexShrink: 0 }}

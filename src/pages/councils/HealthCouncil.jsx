@@ -66,7 +66,7 @@ export default function HealthCouncil() {
         {/* Mission & Vision */}80
         <section className="section">
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 'var(--space-xxl)', alignItems: 'start' }}>
+            <div className="split-2-1">
               <SlideLeft>
                 <span
                   className="badge"

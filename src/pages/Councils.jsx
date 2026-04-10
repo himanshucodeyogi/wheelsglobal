@@ -73,15 +73,15 @@ export default function Councils() {
               {councils.map((c, i) => (
                 <motion.div
                   key={c.title}
+                  className={`council-row ${i % 2 === 0 ? 'council-row-img-first' : 'council-row-text-first'}`}
                   initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.6, ease: 'easeOut' }}
                   whileHover={{ boxShadow: '0 8px 30px rgba(0,0,0,0.1)' }}
-                  style={{ display: 'grid', gridTemplateColumns: i % 2 === 0 ? '1fr 2fr' : '2fr 1fr', gap: 'var(--space-xl)', background: 'var(--color-card)', borderRadius: 'var(--radius-md)', padding: 'var(--space-xl)', boxShadow: 'var(--elevation-1)', border: '1px solid var(--color-border)' }}
                 >
                   {i % 2 !== 0 && (
-                    <div style={{ padding: 'var(--space-lg)' }}>
+                    <div className="council-row-content" style={{ padding: 'var(--space-lg)' }}>
                       <h2>{c.title}</h2>
                       <p style={{ color: 'var(--color-text-secondary)', lineHeight: 1.7, margin: 'var(--space-md) 0' }}>{c.desc}</p>
                       <ul style={{ listStyle: 'none', marginBottom: 'var(--space-lg)' }}>
@@ -99,17 +99,16 @@ export default function Councils() {
                     </div>
                   )}
                   <motion.div
-                    style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', position: 'relative', minHeight: '220px' }}
+                    className="council-row-media"
                     whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}
                   >
-                    <img src={c.img} alt={c.title}
-                      style={{ width: '100%', height: '100%', minHeight: '220px', objectFit: 'cover', display: 'block' }} />
-                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(transparent, rgba(0,0,0,0.55))', padding: 'var(--space-md)' }}>
-                      <h3 style={{ color: '#fff', margin: 0 }}>{c.title}</h3>
+                    <img src={c.img} alt={c.title} />
+                    <div className="council-row-media-overlay">
+                      <h3>{c.title}</h3>
                     </div>
                   </motion.div>
                   {i % 2 === 0 && (
-                    <div style={{ padding: 'var(--space-lg)' }}>
+                    <div className="council-row-content" style={{ padding: 'var(--space-lg)' }}>
                       <h2>{c.title}</h2>
                       <p style={{ color: 'var(--color-text-secondary)', lineHeight: 1.7, margin: 'var(--space-md) 0' }}>{c.desc}</p>
                       <ul style={{ listStyle: 'none', marginBottom: 'var(--space-lg)' }}>

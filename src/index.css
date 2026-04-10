@@ -69,6 +69,10 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-family);
   font-size: 16px;
@@ -180,9 +184,129 @@ a:hover { text-decoration: underline; }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
 }
+/* ── Responsive Layout Helper Classes ── */
+
+/* Generic 1fr 1fr two-column (Contact, Donate) */
+/* Person card: avatar + text side by side */
+.person-card {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: flex-start;
+}
+
+/* Filing card row */
+.filing-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.grid-2-equal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xxl);
+  align-items: start;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+}
+
+/* 2fr + 1fr split used in all council mission sections */
+.split-2-1 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-xxl);
+  align-items: start;
+}
+
+/* Alternating council rows in Councils page */
+.council-row {
+  display: grid;
+  gap: var(--space-xl);
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  box-shadow: var(--elevation-1);
+  border: 1px solid var(--color-border);
+  align-items: center;
+}
+.council-row-img-first { grid-template-columns: 1fr 2fr; }
+.council-row-text-first { grid-template-columns: 2fr 1fr; }
+.council-row-media {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  min-height: 220px;
+}
+.council-row-media img {
+  width: 100%; height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.council-row-media-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.55));
+  padding: var(--space-md);
+}
+.council-row-media-overlay h3 { color: #fff; margin: 0; }
+
+/* ── Media Queries ── */
+
+@media (max-width: 992px) {
+  .split-2-1 { grid-template-columns: 1fr 1fr; }
+  .council-row-img-first,
+  .council-row-text-first { grid-template-columns: 1fr 1fr; }
+}
+
 @media (max-width: 768px) {
-  h1 { font-size: 32px; } h2 { font-size: 26px; }
-  .grid-3, .grid-4, .grid-2 { grid-template-columns: 1fr; }
+  h1 { font-size: 30px; }
+  h2 { font-size: 24px; }
+  h3 { font-size: 20px; }
+  .grid-3, .grid-4, .grid-2, .grid-2-equal { grid-template-columns: 1fr; }
+  .grid-2-equal { padding: 0 var(--space-md); }
   .container { padding: 0 var(--space-md); }
-  .page-hero { padding: 50px 0; }
+  .page-hero { padding: 48px 0; }
+  .page-hero p { font-size: 16px; }
+  .section { padding: var(--space-xl) 0; }
+
+  /* Council mission split collapses to single column */
+  .split-2-1 { grid-template-columns: 1fr; }
+
+  /* Council rows stack image on top */
+  .council-row-img-first,
+  .council-row-text-first {
+    grid-template-columns: 1fr;
+  }
+  /* On mobile, always show image first */
+  .council-row-text-first .council-row-content { order: 2; }
+  .council-row-text-first .council-row-media  { order: 1; }
+
+  /* Inline flex wrapping */
+  .flex-row-wrap { flex-direction: column !important; }
+
+  /* Person card (trustee / advisor) — stack avatar above text */
+  .person-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .person-card img { flex-shrink: 0; }
+
+  /* Filing card — let button wrap below content */
+  .filing-card { flex-wrap: wrap; }
+  .filing-card-btn { width: 100%; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 26px; }
+  h2 { font-size: 21px; }
+  h3 { font-size: 18px; }
+  .page-hero { padding: 36px 0; }
+  .section { padding: var(--space-lg) 0; }
+  .btn { padding: 10px 20px; font-size: 15px; }
+  .card { padding: var(--space-lg); }
+  .grid-3, .grid-4, .grid-2, .grid-2-equal, .split-2-1 { grid-template-columns: 1fr; }
 }
