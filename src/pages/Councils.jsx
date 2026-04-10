@@ -3,11 +3,51 @@ import { motion } from 'framer-motion'
 import { FadeUp, PageTransition } from '../components/Animations'
 
 const councils = [
-  { img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80', title: 'Water Council', link: '/water', color: '#0057B7', bg: 'var(--tint-blue)', desc: 'Bringing safe drinking water and sanitation solutions to rural communities through filtration systems, rainwater harvesting, and water portal apps.', highlights: ['Water filtration systems', 'Rainwater harvesting', 'Sanitation infrastructure', 'Government partnerships'] },
-  { img: 'https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=400&q=80', title: 'Health Council', link: '/health', color: '#28A745', bg: 'var(--tint-green)', desc: 'Ensuring affordable healthcare for 800M+ rural Indians through telemedicine networks, mobile clinics, and preventive health camps.', highlights: ['Telemedicine centers', 'Mobile health clinics', 'Preventive health camps', 'Community health workers'] },
-  { img: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80', title: 'Education Council', link: '/education', color: '#FFA500', bg: 'var(--tint-orange)', desc: 'Empowering rural youth through technology-enabled skills training, digital literacy programs, and vocational education.', highlights: ['Digital literacy programs', 'Vocational training', 'EdTech tools for villages', 'Rural school support'] },
-  { img: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=400&q=80', title: 'Energy Council', link: '/energy', color: '#DC3545', bg: 'var(--tint-red)', desc: 'Promoting renewable energy through solar microgrid installations, clean cookstoves, and sustainable energy solutions for villages.', highlights: ['Solar microgrids', 'Clean cookstoves', 'Energy access programs', 'Renewable solutions'] },
-  { img: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400&q=80', title: 'Livelihood Council', link: '/livelihood', color: '#008080', bg: 'var(--tint-teal)', desc: 'Building sustainable livelihoods through agriculture technology, entrepreneurship support, and women\'s economic empowerment programs.', highlights: ['Agriculture tech', 'Entrepreneurship support', 'Women empowerment', 'Vocational programs'] },
+  {
+    img: 'https://i.ibb.co/N2W0d8HY/image.png',
+    title: 'Water Council',
+    link: '/water',
+    color: 'var(--color-primary)',
+    bg: 'var(--tint-blue)',
+    desc: 'Driving interventions using appropriate technology at scale through multi-stakeholder partnerships — tackling contaminated water sources containing fluoride, arsenic, and toxic components in rural India.',
+    highlights: ['Spring Rejuvenation in Himachal Pradesh', 'Community-level Clean Drinking Water Plants', 'Save India Farmers Initiative', 'Water Body Conservation'],
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=400&q=80',
+    title: 'Health Council',
+    link: '/health',
+    color: 'var(--color-success)',
+    bg: 'var(--tint-green)',
+    desc: 'Providing affordable healthcare solutions to India\'s 800M+ rural and underserved population through technology-driven, practical programs bridging government, NGOs, and private sector.',
+    highlights: ['Rural TeleMedicine Centers', 'SEVAK Model for Preventive Health', 'Sangini — Affordable Sanitary Pads', 'Mental Health Initiatives for Youth'],
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80',
+    title: 'Education Council',
+    link: '/education',
+    color: 'var(--color-secondary)',
+    bg: 'var(--tint-orange)',
+    desc: 'Closing the global skills gap through technology-enabled solutions — reaching 220 million Indian youth lacking formal education, scaling IIT Bombay\'s innovations to the last mile.',
+    highlights: ['Spoken Tutorials — IIT Bombay', 'NDLI — National Digital Library of India', 'Scholar Planet & KidEx', 'Footpathshala & Advanced STEM'],
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=400&q=80',
+    title: 'Energy Council',
+    link: '/energy',
+    color: 'var(--color-error)',
+    bg: 'var(--tint-red)',
+    desc: 'Decarbonizing rural development through micro-grid enterprises, innovative energy storage, and renewable consumer products — led by thought-leaders across four continents.',
+    highlights: ['Micro-Grid Driven Rural Enterprises', 'Innovative Energy Storage Solutions', 'Consumer & Small-Enterprise Renewable Products', 'RuKart: Zero Energy Cold Storage'],
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=400&q=80',
+    title: 'Livelihood Council',
+    link: '/livelihood',
+    color: 'var(--color-accent)',
+    bg: 'var(--tint-teal)',
+    desc: 'Enhancing rural economy through co-created enterprises, science & technology innovations, and scalable livelihood models — supporting India\'s $5 trillion economy goal by 2025.',
+    highlights: ['Aravalli — Integrated Smart Village', 'SVERI in Pandharpur', 'RuralShores / PeopleShores', 'WHEELS Smart Village Framework'],
+  },
 ]
 
 export default function Councils() {
@@ -17,7 +57,7 @@ export default function Councils() {
         <div className="page-hero">
           <div className="container">
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>Our Councils</motion.h1>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}>Five sectoral councils working across critical areas of rural development</motion.p>
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}>Five sectoral councils — Water, Health, Education, Energy, and Livelihood — delivering technology-enabled solutions across rural India</motion.p>
           </div>
         </div>
 
@@ -26,7 +66,7 @@ export default function Councils() {
             <FadeUp>
               <div className="section-title">
                 <h2>WHEELS Council Overview</h2>
-                <p>Each council is led by expert IIT alumni and focuses on a specific area of rural transformation</p>
+                <p>Each council is led by IIT alumni thought-leaders and applies technology to scale impact across six major challenge areas for rural and suburban populations</p>
               </div>
             </FadeUp>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-xl)' }}>

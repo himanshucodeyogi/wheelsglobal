@@ -12,11 +12,11 @@ const heroImages = [
 ]
 
 const councils = [
-  { img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=200&q=80', title: 'Water Council', desc: 'Safe drinking water and sanitation solutions for rural communities.', link: '/water', color: '#0057B7' },
+  { img: 'https://i.ibb.co/N2W0d8HY/image.png', title: 'Water Council', desc: 'Safe drinking water and sanitation solutions for rural communities.', link: '/water', color: '#0057B7' },
   { img: 'https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=200&q=80', title: 'Health Council', desc: 'Affordable healthcare for 800M+ rural Indians via telemedicine networks.', link: '/health', color: '#28A745' },
   { img: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=200&q=80', title: 'Education Council', desc: 'Tech-enabled skills training, digital literacy for rural youth.', link: '/education', color: '#FFA500' },
   { img: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=200&q=80', title: 'Energy Council', desc: 'Renewable energy microgrids and clean cookstoves for villages.', link: '/energy', color: '#DC3545' },
-  { img: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=200&q=80', title: 'Livelihood Council', desc: 'Economic empowerment through agriculture tech and vocational training.', link: '/livelihood', color: '#008080' },
+  { img: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=200&q=80', title: 'Livelihood Council', desc: 'Economic empowerment through agriculture tech and vocational training.', link: '/livelihood', color: '#008080' },
 ]
 
 const stats = [
