@@ -49,9 +49,9 @@ export default function Footer() {
           <div className="footer-social">
             <h4>Follow Us</h4>
             <div className="social-links">
-              <a href="#" aria-label="LinkedIn" onClick={e => e.preventDefault()}>LinkedIn</a>
-              <a href="#" aria-label="Twitter" onClick={e => e.preventDefault()}>Twitter</a>
-              <a href="#" aria-label="Facebook" onClick={e => e.preventDefault()}>Facebook</a>
+              <a href="https://www.linkedin.com/company/wheels-global-foundation" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://twitter.com/wheelsgf" aria-label="Twitter" target="_blank" rel="noopener noreferrer">Twitter</a>
+              <a href="https://www.facebook.com/WheelsGlobalFoundation/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
             </div>
           </div>
         </div>
